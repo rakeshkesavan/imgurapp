@@ -4,12 +4,16 @@ const axios = require("axios");
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
-    console.log("testt");
+router.post('/', (req, res, next) => {
 
-    let { imgurGallery, imgurSort, imgurWindow, galleryViralCheck } = req.body;
+    let { section, sort, showViral, window } = req.body;
 
-    let url = `https://api.imgur.com/3/gallery/${imgurGallery}/${imgurSort}/${imgurWindow}0?showViral=${galleryViralCheck}.json`;
+    console.log(req);
+
+    // let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}0?showViral=${showViral}.json`;
+    let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}0?showViral=${showViral}.json`;
+
+    console.log(url);
 
     // let f = fetch(
     //     url,
@@ -31,7 +35,7 @@ router.get('/', (req, res, next) => {
 
     axios({
         method: 'get',
-        url: 'https://api.imgur.com/3/gallery/hot/viral/0.json',
+        url: url,
         headers: { 'authorization': 'Client-ID b6d1641389367c5' }
     }).then(function (response) {
         //console.log(response.data);

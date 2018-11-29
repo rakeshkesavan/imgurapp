@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Media from '../../../components/Media/Media';
+import Header from '../../../components/Header/header'
 
 import classes from './gallery.module.css'
 
@@ -17,12 +18,25 @@ class Gallery extends Component {
 
     componentDidMount() {
         // this.setState({ gallery: [{ name: "test" }, { name: "test" }, { name: "test" }] });
-        this.props.onload();
+        console.log("componentDidMount", this.props);
+        this.props.onload(this.props);
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.props.sect);
+        if (prevProps.sect !== this.props.sect) {
+            //console.log("sects are differnt", this.props);
+            this.props.onload(this.props);
+        }
+
+    }
+    sectionHandler(section) {
+        this.props.handleSection(section.toLowerCase());
+        // this.props.onload(this.props);
     }
 
     render() {
-        let gallery = <p style={{ textAlign: 'center' }}>Something went wrong!</p>;
-
+        let gallery = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
+            header = (<Header section={this.props.sect} sectionClicked={(section) => this.sectionHandler(section)}></Header>);
 
         gallery = (
 
@@ -32,7 +46,7 @@ class Gallery extends Component {
                     {this.props.gal.map((post, index) => {
                         let images, imageB;
                         if (post.images !== undefined && post.images[0].mp4 === undefined) {
-                            imageB = { 'background-image': 'url(' + post.images[0].link + ')' }
+                            imageB = { 'backgroundImage': 'url(' + post.images[0].link + ')' }
                             images = (
                                 <div key={index} style={imageB} >
                                     <Media item={post}></Media>
@@ -46,14 +60,15 @@ class Gallery extends Component {
             </div>
         );
 
-        return (gallery);
+        return (
+            <>
+                {header}
+                {gallery}
+            </>
+        );
 
     }
 
 }
-
-
-
-
 
 export default Gallery;

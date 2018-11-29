@@ -5,7 +5,7 @@ import classes from './media.module.css'
 
 class Media extends Component {
     render(props) {
-        console.log(this.props.item.images);
+        // console.log(this.props.item.images);
 
         let images = null;
         if (this.props.item.images !== undefined) {

@@ -2,10 +2,10 @@ import axios from 'axios';
 
 import { GET_GALLERY_CONTENT } from './types';
 
-export const getGallery = (dispatch) => {
-    console.log("blah ");
+export const getGallery = (props) => {
+    const filterData = getFilterData(props);
     return (dispatch) => {
-        axios.get('/api/gallery')
+        axios.post('/api/gallery', filterData)
             .then(response => {
                 console.log(response);
                 dispatch(gallery(response.data));
@@ -15,6 +15,15 @@ export const getGallery = (dispatch) => {
             });
     }
 };
+
+const getFilterData = (props) => {
+    return {
+        section: props.sect,
+        sort: props.sortParam,
+        showViral: props.viral,
+        window: props.wnd
+    }
+}
 
 export const gallery = (data) => {
     return {
