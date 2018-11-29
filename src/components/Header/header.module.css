@@ -1,0 +1,21 @@
+.header {
+    background: rgba(0, 0, 0, 0.85);
+    min-height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    
+}
+
+.logo {
+    font-family: 'Bevan', cursive;
+    font-size: 50px;
+    color: #fff;
+}
+
+.header-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
