@@ -34,14 +34,14 @@ const header = (props) => (
                             <nav>
                                 <ul>
                                     <li
-                                        className={(props.section === sortTypes.SORT_VIRAL) ? styles.active : ''}
-                                        onClick={() => (props.sectionClicked(sortTypes.SORT_VIRAL))}>
+                                        className={(props.sort === sortTypes.SORT_VIRAL) ? styles.active : ''}
+                                        onClick={() => (props.sortClicked(sortTypes.SORT_VIRAL))}>
                                         {sortTypes.SORT_VIRAL}</li>
 
-                                    <li className={(props.section === sortTypes.SORT_TOP) ? styles.active : ''}
-                                        onClick={() => (props.sectionClicked(sortTypes.SORT_TOP))}>{sortTypes.SORT_TOP}</li>
-                                    <li className={(props.section === sortTypes.SORT_TIME) ? styles.active : ''}
-                                        onClick={() => (props.sectionClicked(sortTypes.SORT_TIME))}>{sortTypes.SORT_TIME}</li>
+                                    <li className={(props.sort === sortTypes.SORT_TOP) ? styles.active : ''}
+                                        onClick={() => (props.sortClicked(sortTypes.SORT_TOP))}>{sortTypes.SORT_TOP}</li>
+                                    <li className={(props.sort === sortTypes.SORT_TIME) ? styles.active : ''}
+                                        onClick={() => (props.sortClicked(sortTypes.SORT_TIME))}>{sortTypes.SORT_TIME}</li>
                                 </ul>
                             </nav>
                         </div>

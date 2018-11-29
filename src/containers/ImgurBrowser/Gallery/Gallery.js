@@ -17,14 +17,10 @@ class Gallery extends Component {
     }
 
     componentDidMount() {
-        // this.setState({ gallery: [{ name: "test" }, { name: "test" }, { name: "test" }] });
-        console.log("componentDidMount", this.props);
         this.props.onload(this.props);
     }
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.props.sect);
-        if (prevProps.sect !== this.props.sect || prevProps.viral !== this.props.viral || prevProps.wnd !== this.props.wnd) {
-            //console.log("sects are differnt", this.props);
+        if (prevProps.sect !== this.props.sect || prevProps.viral !== this.props.viral || prevProps.wnd !== this.props.wnd || prevProps.sortParam !== this.props.sortParam) {
             this.props.onload(this.props);
         }
 
@@ -34,6 +30,9 @@ class Gallery extends Component {
     }
     windowHandler(window) {
         this.props.handleWindow(window.toLowerCase());
+    }
+    sortHandler(sort) {
+        this.props.handleSort(sort.toLowerCase());
     }
     viralChangeHandler(viralImageVisible) {
         viralImageVisible = !viralImageVisible;
@@ -46,10 +45,12 @@ class Gallery extends Component {
                 <Header
                     section={this.props.sect}
                     window={this.props.wnd}
+                    sort={this.props.sortParam}
                     showViral={this.props.viral}
                     viralChanged={(showViralImage) => { this.viralChangeHandler(showViralImage) }}
                     sectionClicked={(section) => this.sectionHandler(section)}
                     windowClicked={(window) => this.windowHandler(window)}
+                    sortClicked={(sort) => this.sortHandler(sort)}
                 ></Header>
             );
 

@@ -8,10 +8,10 @@ router.post('/', (req, res, next) => {
 
     let { section, sort, showViral, window } = req.body;
 
-    console.log(req);
+    // console.log(req);
 
     // let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}0?showViral=${showViral}.json`;
-    let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}/0?showViral=${showViral}.json`;
+    let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}/0?showViral=${showViral}`;
 
     console.log(url);
 

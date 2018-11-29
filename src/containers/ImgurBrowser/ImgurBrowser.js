@@ -4,6 +4,7 @@ import Gallery from './Gallery/Gallery';
 import { getGallery } from '../../actions/gallery';
 import { handleSection } from '../../actions/section';
 import { handleWindow } from '../../actions/window';
+import { handleSort } from '../../actions/sort';
 import { handleViralImageVisiblity } from '../../actions/viralImages';
 
 import { connect } from 'react-redux';
@@ -11,7 +12,6 @@ import { connect } from 'react-redux';
 class ImgurBrowser extends Component {
 
     render() {
-        console.log('rendered', this.props.viral);
         return (
             <>
                 <Switch>
@@ -30,7 +30,6 @@ class ImgurBrowser extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('=======', state.showViral)
     return {
         gal: state.gallery,
         sect: state.section,
@@ -45,6 +44,7 @@ const mapDispatchToProps = dispatch => {
         onload: (props) => dispatch(getGallery(props)),
         handleSection: (section) => dispatch(handleSection(section)),
         handleWindow: (section) => dispatch(handleWindow(section)),
+        handleSort: (sort) => dispatch(handleSort(sort)),
         handleViralImageVisiblity: (visiblity) => dispatch(handleViralImageVisiblity(visiblity))
     };
 };

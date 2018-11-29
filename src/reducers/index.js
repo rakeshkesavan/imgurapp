@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, showViral: action.payload.visiblity }
 
         case types.SET_SORT:
-            return { ...state, showViral: action.payload.visiblity }
+            return { ...state, sort: action.payload.sort }
 
         case types.SET_WINDOW:
             return { ...state, window: action.payload.window }
