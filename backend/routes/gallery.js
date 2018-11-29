@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
     console.log(req);
 
     // let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}0?showViral=${showViral}.json`;
-    let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}0?showViral=${showViral}.json`;
+    let url = `https://api.imgur.com/3/gallery/${section}/${sort}/${window}/0?showViral=${showViral}.json`;
 
     console.log(url);
 

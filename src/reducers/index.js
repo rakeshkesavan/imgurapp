@@ -29,6 +29,15 @@ const reducer = (state = initialState, action) => {
         case types.SET_SECTION:
             return { ...state, section: action.payload.section }
 
+        case types.SET_VIRAL_IMAGE_VISIBLITY:
+            return { ...state, showViral: action.payload.visiblity }
+
+        case types.SET_SORT:
+            return { ...state, showViral: action.payload.visiblity }
+
+        case types.SET_WINDOW:
+            return { ...state, window: action.payload.window }
+
 
 
         // const newPerson = {

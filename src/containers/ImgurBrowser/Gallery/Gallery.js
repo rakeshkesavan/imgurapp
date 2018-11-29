@@ -23,7 +23,7 @@ class Gallery extends Component {
     }
     componentDidUpdate(prevProps, prevState) {
         console.log(this.props.sect);
-        if (prevProps.sect !== this.props.sect) {
+        if (prevProps.sect !== this.props.sect || prevProps.viral !== this.props.viral || prevProps.wnd !== this.props.wnd) {
             //console.log("sects are differnt", this.props);
             this.props.onload(this.props);
         }
@@ -31,12 +31,27 @@ class Gallery extends Component {
     }
     sectionHandler(section) {
         this.props.handleSection(section.toLowerCase());
-        // this.props.onload(this.props);
+    }
+    windowHandler(window) {
+        this.props.handleWindow(window.toLowerCase());
+    }
+    viralChangeHandler(viralImageVisible) {
+        viralImageVisible = !viralImageVisible;
+        this.props.handleViralImageVisiblity(viralImageVisible);
     }
 
     render() {
         let gallery = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
-            header = (<Header section={this.props.sect} sectionClicked={(section) => this.sectionHandler(section)}></Header>);
+            header = (
+                <Header
+                    section={this.props.sect}
+                    window={this.props.wnd}
+                    showViral={this.props.viral}
+                    viralChanged={(showViralImage) => { this.viralChangeHandler(showViralImage) }}
+                    sectionClicked={(section) => this.sectionHandler(section)}
+                    windowClicked={(window) => this.windowHandler(window)}
+                ></Header>
+            );
 
         gallery = (
 

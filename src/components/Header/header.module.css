@@ -31,12 +31,19 @@
 
 .header-wrapper li {
     display: inline-block;
-    margin: 20px;
+    
     color: #fff;
-    line-height: 40px;
+    margin: 0 10px;
     text-transform: capitalize;
     cursor: pointer;
     position: relative;
+}
+.section li {
+    margin: 20px;
+    line-height: 40px;
+}
+.windowSort li {
+    margin: 0 10px;
 }
 li.active {
     color: #fa923f;
@@ -113,6 +120,9 @@ li.active {
     display: inline-block;
     width: 60px;
     height: 34px;
+    float: right;
+    margin-top: 2px;
+
   }
   
   /* Hide default HTML checkbox */
@@ -178,4 +188,17 @@ li.active {
   .viralLabel{
       display: inline;;
       padding-right: 10px;
+      float: right;
+  }
+
+  .topDraw{
+    background: #2e3035;
+    padding: 10px 4px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 14px;
+    margin: 0 20px;
+  }
+  .topDraw span{
+      padding-right: 20px;
   }

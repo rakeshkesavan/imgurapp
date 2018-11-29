@@ -3,13 +3,15 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Gallery from './Gallery/Gallery';
 import { getGallery } from '../../actions/gallery';
 import { handleSection } from '../../actions/section';
+import { handleWindow } from '../../actions/window';
+import { handleViralImageVisiblity } from '../../actions/viralImages';
 
 import { connect } from 'react-redux';
 
 class ImgurBrowser extends Component {
 
     render() {
-        console.log('rendered');
+        console.log('rendered', this.props.viral);
         return (
             <>
                 <Switch>
@@ -28,6 +30,7 @@ class ImgurBrowser extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log('=======', state.showViral)
     return {
         gal: state.gallery,
         sect: state.section,
@@ -40,7 +43,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onload: (props) => dispatch(getGallery(props)),
-        handleSection: (section) => dispatch(handleSection(section))
+        handleSection: (section) => dispatch(handleSection(section)),
+        handleWindow: (section) => dispatch(handleWindow(section)),
+        handleViralImageVisiblity: (visiblity) => dispatch(handleViralImageVisiblity(visiblity))
     };
 };
 
