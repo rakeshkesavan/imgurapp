@@ -39,6 +39,11 @@ class Gallery extends Component {
         this.props.handleViralImageVisiblity(viralImageVisible);
     }
 
+    postSelectedHandler = (id) => {
+        // this.props.history.push({pathname: '/posts/' + id});
+        this.props.history.push('/gallery/' + id);
+    }
+
     render() {
         let gallery = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
             header = (
@@ -64,7 +69,11 @@ class Gallery extends Component {
                         if (post.images !== undefined && post.images[0].mp4 === undefined) {
                             imageB = { 'backgroundImage': 'url(' + post.images[0].link + ')' }
                             images = (
-                                <div key={index} style={imageB} >
+                                <div
+                                    onClick={
+                                        () => this.postSelectedHandler(post.id)
+                                    }
+                                    key={index} style={imageB} >
                                     <Media item={post}></Media>
                                 </div>
                             )

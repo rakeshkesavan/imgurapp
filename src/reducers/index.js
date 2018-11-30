@@ -11,7 +11,8 @@ const initialState = {
     section: "hot",
     sort: "viral",
     window: "day",
-    showViral: true
+    showViral: true,
+    post: {}
 
 }
 
@@ -37,6 +38,13 @@ const reducer = (state = initialState, action) => {
 
         case types.SET_WINDOW:
             return { ...state, window: action.payload.window }
+
+        case types.GET_SINGLE_POST:
+            return { ...state, post: action.payload.body.data }
+
+        case types.CLEAR_POST:
+            return { ...state, post: action.payload.body.post }
+
 
 
 
