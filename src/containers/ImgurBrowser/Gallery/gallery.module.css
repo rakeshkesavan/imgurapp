@@ -26,8 +26,8 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 4fr);
-    grid-gap: 15px;
-    max-width: 1200px;
+    grid-gap: 50px;
+    max-width: 1008px;
     width: 100%;
     margin: 0 auto;
   }
