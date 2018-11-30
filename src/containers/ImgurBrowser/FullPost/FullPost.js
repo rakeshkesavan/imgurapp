@@ -16,7 +16,7 @@ class FullPost extends Component {
 
     }
     componentWillUnmount() {
-        // this.props.clearPost();
+        this.props.clearPost();
     }
 
     render() {

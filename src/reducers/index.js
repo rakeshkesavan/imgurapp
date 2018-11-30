@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, post: action.payload.body.data }
 
         case types.CLEAR_POST:
-            return { ...state, post: action.payload.body.post }
+            return { ...state, post: action.payload.post }
 
 
 
