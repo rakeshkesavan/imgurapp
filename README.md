@@ -1,9 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## USAGE 
 
-In the project directory, you can run:
-
+## Start Client side  
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -11,6 +10,19 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+## Start Backend server 
+### `npm run start:server`
+
+## Set IMGUR client ID
+
+Set imgur client ID here: /backend/constants/constants
+
+IF you dont have one , you can create here:  http://api.imgur.com/oauth2/addclient
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm test`
 
