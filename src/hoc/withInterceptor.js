@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Spinner from '../components/UI/Spinner/Spinner'
+import Spinner from '../components/UI/Spinner/Spinner';
+import Modal from '../components/UI/Modal/Modal';
 
 const withInterceptor = (WrappedComponent, axios) => {
     return class extends Component {
@@ -10,16 +11,36 @@ const withInterceptor = (WrappedComponent, axios) => {
         }
 
         componentWillMount() {
+            let self = this;
             this.reqInterceptor = axios.interceptors.request.use(req => {
                 this.setState({ error: null, spinner: true });
                 return req;
             });
-            this.resInterceptor = axios.interceptors.response.use(res => {
+            // this.resInterceptor = axios.interceptors.response.use(res => {
+            //     this.setState({ error: null, spinner: false });
+            //     return res;
+            // }, error => {
+            //     if (error.response.status === 404) {
+            //         this.props.history.push('/gallery');
+            //         console.log("pushed");
+            //     }
+            //     console.log(this.props.history);
+            //     this.setState({ error: error.response, spinner: false });
+            //     // return error;
+            // });
+
+            this.resInterceptor = axios.interceptors.response.use(response => {
                 this.setState({ error: null, spinner: false });
-                return res;
+                return response;
             }, error => {
-                console.log(error);
-                this.setState({ error: error, spinner: false });
+                if (error.response.status === 404) {
+                    this.props.history.push('/404');
+                    // console.log("pushed");
+                }
+                console.log(self.props.history);
+                self.setState({ error: error, spinner: false });
+                return error;
+                //return Promise.reject(error);
             });
         }
 
@@ -34,10 +55,14 @@ const withInterceptor = (WrappedComponent, axios) => {
         }
 
         render() {
-            console.log("interceptor rendered");
             return (
                 <>
                     <Spinner show={this.state.spinner}></Spinner>
+                    <Modal
+                        show={this.state.error}
+                        modalClosed={this.errorConfirmedHandler}>
+                        {this.state.error ? this.state.error.message : null}
+                    </Modal>
                     <WrappedComponent {...this.props} />
                 </>
             );

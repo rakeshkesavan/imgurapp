@@ -20,7 +20,6 @@ class FullPost extends Component {
     }
 
     render() {
-        console.log(this.props);
         let post = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
             header = (
                 <Header nav="false"></Header>

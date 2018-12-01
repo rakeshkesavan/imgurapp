@@ -11,7 +11,7 @@ class Spinner extends Component {
     }
 
     componentWillUpdate() {
-        console.log('[Spinner] WillUpdate');
+        // console.log('[Spinner] WillUpdate');
     }
 
     render() {

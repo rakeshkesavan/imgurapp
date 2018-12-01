@@ -5,12 +5,15 @@ import { GET_SINGLE_POST, CLEAR_POST } from './types';
 export const getSinglePost = (id) => {
     return (dispatch) => {
         axios.get('/api/gallery/' + id)
-            .then(response => {
-                dispatch(getPost(response.data));
-            })
-            .catch(error => {
+            .then(response => { // Success
+                if (response && response.data) {
+                    dispatch(getPost(response.data));
+                }
+            }, error => { // Failed
                 throw (error);
             });
+
+
     }
 };
 

@@ -33,6 +33,7 @@ h2{
 .postFooter i{
 display: inline;
 opacity: 0.3;
+font-size: 37px;
 }
 .postBodyImage{
     text-align: center;
@@ -49,6 +50,7 @@ opacity: 0.3;
     color: #fff;
     opacity: 0.5;
     font-weight: bold;
-    color: #fff 
+    color: #fff;
+    font-size: 37px;
 
 }
