@@ -48,6 +48,7 @@ class Gallery extends Component {
         let gallery = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
             header = (
                 <Header
+                    nav="true"
                     section={this.props.sect}
                     window={this.props.wnd}
                     sort={this.props.sortParam}

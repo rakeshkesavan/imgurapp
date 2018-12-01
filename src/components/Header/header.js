@@ -17,22 +17,23 @@ const header = (props) => (
                         Demo App
                 </Link>
                 </div>
+                {props.nav === "true" ?
+                    <div className={styles.col}>
+                        <nav className={styles.section}>
+                            <ul>
+                                <li
+                                    className={(props.section === sectionTypes.SECTION_HOT) ? styles.active : ''}
+                                    onClick={() => (props.sectionClicked(sectionTypes.SECTION_HOT))}>
+                                    {sectionTypes.SECTION_HOT}</li>
 
-                <div className={styles.col}>
-                    <nav className={styles.section}>
-                        <ul>
-                            <li
-                                className={(props.section === sectionTypes.SECTION_HOT) ? styles.active : ''}
-                                onClick={() => (props.sectionClicked(sectionTypes.SECTION_HOT))}>
-                                {sectionTypes.SECTION_HOT}</li>
-
-                            <li className={(props.section === sectionTypes.SECTION_TOP) ? styles.active : ''}
-                                onClick={() => (props.sectionClicked(sectionTypes.SECTION_TOP))}>{sectionTypes.SECTION_TOP}</li>
-                            <li className={(props.section === sectionTypes.SECTION_USER) ? styles.active : ''}
-                                onClick={() => (props.sectionClicked(sectionTypes.SECTION_USER))}>{sectionTypes.SECTION_USER}</li>
-                        </ul>
-                    </nav>
-                </div>
+                                <li className={(props.section === sectionTypes.SECTION_TOP) ? styles.active : ''}
+                                    onClick={() => (props.sectionClicked(sectionTypes.SECTION_TOP))}>{sectionTypes.SECTION_TOP}</li>
+                                <li className={(props.section === sectionTypes.SECTION_USER) ? styles.active : ''}
+                                    onClick={() => (props.sectionClicked(sectionTypes.SECTION_USER))}>{sectionTypes.SECTION_USER}</li>
+                            </ul>
+                        </nav>
+                    </div> : null
+                }
 
                 {props.section === sectionTypes.SECTION_USER ?
                     <div className={styles.col}>
@@ -90,18 +91,20 @@ const header = (props) => (
                     </div> : null
                 }
 
-                <div className={styles.col}>
-                    <div className={styles.colContainer}>
-                        <label className={styles.switch}>
-                            <input type="checkbox"
-                                name="showViral"
-                                checked={props.showViral}
-                                onChange={() => props.viralChanged(props.showViral)} />
-                            <span className={[styles.slider, styles.round].join(' ')}></span>
-                        </label>
-                        <span className={styles.viralLabel}>Show Viral Images {props.viral}</span>
-                    </div>
-                </div>
+                {props.nav === 'true' ?
+                    <div className={styles.col}>
+                        <div className={styles.colContainer}>
+                            <label className={styles.switch}>
+                                <input type="checkbox"
+                                    name="showViral"
+                                    checked={props.showViral}
+                                    onChange={() => props.viralChanged(props.showViral)} />
+                                <span className={[styles.slider, styles.round].join(' ')}></span>
+                            </label>
+                            <span className={styles.viralLabel}>Show Viral Images {props.viral}</span>
+                        </div>
+                    </div> : null
+                }
             </div>
         </header>
     </>

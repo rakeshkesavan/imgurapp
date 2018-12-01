@@ -23,16 +23,7 @@ class FullPost extends Component {
         console.log(this.props);
         let post = <p style={{ textAlign: 'center' }}>Something went wrong!</p>,
             header = (
-                <Header
-                    section={this.props.sect}
-                    window={this.props.wnd}
-                    sort={this.props.sortParam}
-                    showViral={this.props.viral}
-                    viralChanged={(showViralImage) => { this.viralChangeHandler(showViralImage) }}
-                    sectionClicked={(section) => this.sectionHandler(section)}
-                    windowClicked={(window) => this.windowHandler(window)}
-                    sortClicked={(sort) => this.sortHandler(sort)}
-                ></Header>
+                <Header nav="false"></Header>
             );
 
 
