@@ -8,8 +8,8 @@ Instead of calling Imgur API directly, API calls are proxied through Node/expres
 
 ## How to get started 
 1. Clone the repo.
-2. go to the project folder and type 'npm install' in terminal to install all the dependencies
-3.'npm run start-server' to start the backend server.
+2. go to the project folder and type 'npm install' in terminal to install all the dependencies.
+3. 'npm run start-server' to start the backend server.
 4. Once the backend is up , 'npm start' to start the Client app  
 
 ## Start Backend server 
