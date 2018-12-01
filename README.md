@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#About
+
+## About
 Displays Image gallery using imgur api. 
 Its a Simple web app that allows one to browse the Imgur gallery using https://api.imgur.com/: React with redux pattern in the Front end and Express.js in the backend. 
 Instead of calling Imgur API directly, API calls are proxied through Node/express server.
