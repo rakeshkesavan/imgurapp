@@ -7,6 +7,7 @@ export const getGallery = (props) => {
     return (dispatch) => {
         axios.post('/api/gallery', filterData)
             .then(response => {
+                console.log(response);
                 dispatch(gallery(response.data));
             })
             .catch(error => {

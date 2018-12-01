@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Gallery from './Gallery/Gallery';
 import { getGallery } from '../../actions/gallery';
 import { getSinglePost, clearPostState } from '../../actions/post';
@@ -11,6 +11,8 @@ import { handleViralImageVisiblity } from '../../actions/viralImages';
 import FullPost from './FullPost/FullPost'
 
 import { connect } from 'react-redux';
+import withInterceptor from '../../hoc/withInterceptor';
+import axios from 'axios';
 
 class ImgurBrowser extends Component {
 
@@ -22,7 +24,7 @@ class ImgurBrowser extends Component {
                     <Route path="/gallery" exact render={() => <Gallery {...this.props} />} />
                     <Route path={"/gallery/:id"} exact render={() => <FullPost {...this.props} />} />
                     {/* <Route path="/gallery/:section?/:sort?/:window?/:showViral" render={() => <Gallery {...this.props} />} /> */}
-                    {/* <Redirect from="/" to={urlParam} /> */}
+                    <Redirect from="/" to="/gallery" />
                 </Switch>
 
                 {/* <Gallery /> */}
@@ -57,4 +59,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ImgurBrowser));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withInterceptor(ImgurBrowser, axios)));
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ImgurBrowser));
+

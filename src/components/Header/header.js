@@ -2,6 +2,8 @@ import React from 'react';
 import * as sectionTypes from './sectionTypes';
 import * as sortTypes from './sortTypes';
 import * as windowTypes from './windowTypes';
+import { Link } from 'react-router-dom';
+
 
 import styles from './header.module.css';
 
@@ -10,7 +12,11 @@ const header = (props) => (
         <header className={styles.header}>
             <div className={[styles['header-wrapper'], styles['flex-grid-thirds']].join(' ')}>
 
-                <div className={[styles['logo'], styles['col']].join(' ')}>Demo App</div>
+                <div className={[styles['logo'], styles['col']].join(' ')}>
+                    <Link to={'/gallery'}>
+                        Demo App
+                </Link>
+                </div>
 
                 <div className={styles.col}>
                     <nav className={styles.section}>

@@ -95,7 +95,7 @@
     background: rgba(34, 34, 34, 0.5);
     display: block;
   }
-  .gallery-grid div:hover:before, .gallery-grid div:hover:after {
+  .gallery-grid > div:hover:before, .gallery-grid > div:hover:after {
     opacity: 1;
     transition: .3s opacity ease;
   }
