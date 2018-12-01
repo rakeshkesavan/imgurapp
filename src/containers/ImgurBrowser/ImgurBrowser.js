@@ -21,11 +21,9 @@ class ImgurBrowser extends Component {
         return (
             <>
                 <Switch>
-
                     <Route path="/gallery" exact render={() => <Gallery {...this.props} />} />
                     <Route path={"/gallery/:id"} exact render={() => <FullPost {...this.props} />} />
                     <Route path={"/404"} exact render={() => <FouroFour />} />
-                    {/* <Route path="/gallery/:section?/:sort?/:window?/:showViral" render={() => <Gallery {...this.props} />} /> */}
                     <Redirect from="" exact to="/gallery" />
                     <Route component={FouroFour} />
                 </Switch>
