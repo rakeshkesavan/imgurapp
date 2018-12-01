@@ -1,6 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## USAGE 
+#About
+Displays Image gallery using imgur api. 
+Its a Simple web app that allows one to browse the Imgur gallery using https://api.imgur.com/: React with redux pattern in the Front end and Express.js in the backend. 
+Instead of calling Imgur API directly, API calls are proxied through Node/express server.
+
+## Usage 
+'npm start' to start the Client app and 'npm run start-server' to start the backend server.
+
 
 ## Start Client side  
 ### `npm start`
@@ -13,6 +20,7 @@ You will also see any lint errors in the console.
 
 ## Start Backend server 
 ### `npm run start:server`
+starts the node server.js on 5000
 
 ## Set IMGUR client ID
 
