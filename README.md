@@ -2,12 +2,19 @@
 
 ## About
 Displays Image gallery using imgur api. 
-Its a Simple web app that allows one to browse the Imgur gallery using https://api.imgur.com/: React with redux pattern in the Front end and Express.js in the backend. 
+Its a Simple web app that allows one to browse the Imgur gallery using https://api.imgur.com/.
+React with redux pattern in the Front end and Express.js in the backend. 
 Instead of calling Imgur API directly, API calls are proxied through Node/express server.
 
-## Usage 
-'npm start' to start the Client app and 'npm run start-server' to start the backend server.
+## How to get started 
+1. Clone the repo.
+2. go to the project folder and type 'npm install' in terminal to install all the dependencies.
+3. 'npm run start-server' to start the backend server.
+4. Once the backend is up , 'npm start' to start the Client app  
 
+## Start Backend server 
+### `npm run start:server`
+starts the node server.js on 5000
 
 ## Start Client side  
 ### `npm start`
@@ -18,9 +25,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-## Start Backend server 
-### `npm run start:server`
-starts the node server.js on 5000
 
 ## Set IMGUR client ID
 
